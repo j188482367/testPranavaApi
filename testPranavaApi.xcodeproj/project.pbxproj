@@ -14,6 +14,9 @@
 		F606CE111B8DA7F800054F5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F606CE101B8DA7F800054F5E /* Images.xcassets */; };
 		F606CE141B8DA7F800054F5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F606CE121B8DA7F800054F5E /* LaunchScreen.xib */; };
 		F606CE201B8DA7F800054F5E /* testPranavaApiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F606CE1F1B8DA7F800054F5E /* testPranavaApiTests.m */; };
+		F606CE2E1B8DC89400054F5E /* JsonEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F606CE2D1B8DC89400054F5E /* JsonEncoder.m */; };
+		F6ABFC0B1B8F048E005EDAE3 /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = F6ABFC091B8F048E005EDAE3 /* utils.c */; };
+		F6ABFC0E1B90481B005EDAE3 /* httphelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F6ABFC0D1B90481B005EDAE3 /* httphelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		F606CE191B8DA7F800054F5E /* testPranavaApiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testPranavaApiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F606CE1E1B8DA7F800054F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F606CE1F1B8DA7F800054F5E /* testPranavaApiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testPranavaApiTests.m; sourceTree = "<group>"; };
+		F606CE2C1B8DC89400054F5E /* JsonEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonEncoder.h; sourceTree = "<group>"; };
+		F606CE2D1B8DC89400054F5E /* JsonEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonEncoder.m; sourceTree = "<group>"; };
+		F6ABFC091B8F048E005EDAE3 /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		F6ABFC0A1B8F048E005EDAE3 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		F6ABFC0C1B90481B005EDAE3 /* httphelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = httphelper.h; sourceTree = "<group>"; };
+		F6ABFC0D1B90481B005EDAE3 /* httphelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = httphelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,12 @@
 		F606CDF71B8DA7F800054F5E = {
 			isa = PBXGroup;
 			children = (
+				F6ABFC0C1B90481B005EDAE3 /* httphelper.h */,
+				F6ABFC0D1B90481B005EDAE3 /* httphelper.m */,
+				F6ABFC091B8F048E005EDAE3 /* utils.c */,
+				F6ABFC0A1B8F048E005EDAE3 /* utils.h */,
+				F606CE2C1B8DC89400054F5E /* JsonEncoder.h */,
+				F606CE2D1B8DC89400054F5E /* JsonEncoder.m */,
 				F606CE021B8DA7F800054F5E /* testPranavaApi */,
 				F606CE1C1B8DA7F800054F5E /* testPranavaApiTests */,
 				F606CE011B8DA7F800054F5E /* Products */,
@@ -219,9 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6ABFC0B1B8F048E005EDAE3 /* utils.c in Sources */,
 				F606CE0C1B8DA7F800054F5E /* ViewController.m in Sources */,
 				F606CE091B8DA7F800054F5E /* AppDelegate.m in Sources */,
 				F606CE061B8DA7F800054F5E /* main.m in Sources */,
+				F606CE2E1B8DC89400054F5E /* JsonEncoder.m in Sources */,
+				F6ABFC0E1B90481B005EDAE3 /* httphelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +434,7 @@
 				F606CE251B8DA7F800054F5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F606CE261B8DA7F800054F5E /* Build configuration list for PBXNativeTarget "testPranavaApiTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +443,7 @@
 				F606CE281B8DA7F800054F5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
