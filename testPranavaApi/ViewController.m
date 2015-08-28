@@ -69,9 +69,9 @@
     
     //json_encode
     
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:v options:NSJSONReadingMutableLeaves error:&error];
+    NSData *toJsonData = [NSJSONSerialization dataWithJSONObject:v options:NSJSONReadingMutableLeaves error:&error];
     
-    NSString * jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString * jsonString = [[NSString alloc] initWithData:toJsonData encoding:NSUTF8StringEncoding];
     
     
        //@"{\"u\":\"fojgbdbghghdhdh\",\"a\":\"55dd3fe7d00d9\",\"v\":[]}";
@@ -94,34 +94,39 @@
   
     
     
-    NSData*received= [HttpHelper post:@"http://www.pranava.cn/auth" RequestParams:json];
+  
     
-    
-    NSString*receivedToStr=[[NSString alloc]initWithData:received encoding:NSUTF8StringEncoding];
-    
-
-    NSLog(@"%@",receivedToStr);
-    
-    
-    /*
      
      //    NSData --> NSDictionary
      // NSDictionary --> NSData
-     NSData *data = [NSJSONSerialization dataWithJSONObject:json options:NSJSONReadingAllowFragments error:nil];
+     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONReadingMutableLeaves error:nil];
      
      
-     NSString * jsonString2 = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-     
-     
-     
-     
-     NSLog(@"json2:%@\r\n",jsonString2);
+     NSString * jsonString2 = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
      
      
      
-     request.HTTPBody=data;
      
-     */
+    NSLog(@"json2:%@\r\n",jsonString2);
+    
+    NSURL *url =[NSURL URLWithString:@"http://www.pranava.cn/auth"];
+    
+    NSMutableURLRequest*request=[[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5];
+    
+    
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody:jsonData];
+    
+    //创建一个新的队列（开启新线程）
+    NSData*received=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    
+    NSString*receiverDataToString=[[ NSString alloc] initWithData:received encoding:NSUTF8StringEncoding];
+
+
+    NSLog(@"%@",receiverDataToString);
+ 
+     
+    
     
 }
 
