@@ -99,7 +99,8 @@
      
      //    NSData --> NSDictionary
      // NSDictionary --> NSData
-     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONReadingMutableLeaves error:nil];
+    /*
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONReadingMutableLeaves error:nil];
      
      
      NSString * jsonString2 = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -108,14 +109,25 @@
      
      
     NSLog(@"json2:%@\r\n",jsonString2);
+    */
     
     NSURL *url =[NSURL URLWithString:@"http://www.pranava.cn/auth"];
     
     NSMutableURLRequest*request=[[NSMutableURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:5];
     
+    NSString *post = [NSString stringWithFormat:@"k=%@&v=%@",k,nssStr];
+    
+    
+    NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
+    
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
     
     [request setHTTPMethod:@"POST"];
-    [request setHTTPBody:jsonData];
+    [request setHTTPBody:postData];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
     
     //创建一个新的队列（开启新线程）
     NSData*received=[NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
